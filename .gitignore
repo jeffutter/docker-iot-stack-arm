@@ -1,21 +1,21 @@
-emqttd/data
+emqttd/data/*
 !emqttd/data/.gitkeep
-emqttd/etc
+emqttd/etc/*
 !emqttd/etc/.gitkeep
-emqttd/log
+emqttd/log/*
 !emqttd/log/.gitkeep
-emqttd/plugins
+emqttd/plugins/*
 !emqttd/plugins/.gitkeep
 
-grafana/data
+grafana/data/*
 !grafana/data/.gitkeep
-grafana/etc
+grafana/etc/*
 !grafana/etc/.gitkeep
-grafana/log
+grafana/log/*
 !grafana/log/.gitkeep
 
-node-red/data
+node-red/data/*
 !node-red/data/.gitkeep
 
-prometheus/data
+prometheus/data/*
 !prometheus/data/.gitkeep
