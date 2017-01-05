@@ -1,0 +1,40 @@
+version: '2'
+services:
+  node-red:
+    build: ./node-red
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./node-red/data:/data
+    depends_on:
+      - emqttd
+    restart: always
+  emqttd:
+    build: ./emqttd
+    ports:
+      - "1883:1883"
+      - "8883:8883"
+      - "8083:8083"
+      - "8084:8084"
+      - "18083:18083"
+      - "4369:4369"
+      - "6000-6999:6000-6999"
+    restart: always
+  prometheus:
+    build: ./prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/data:/prometheus
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    restart: always
+  graphana:
+    image: fg2it/grafana-armhf:v4.0.2
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/data:/var/lib/grafana
+      - ./grafana/log:/var/log/grafana
+    depends_on:
+      - prometheus
+    restart: always
